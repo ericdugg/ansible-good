@@ -1,0 +1,21 @@
+---
+- name: set up load-balancers  
+  hosts: frontends
+  become: yes
+  roles:
+    - {name: base, tags: base }
+    - {name: haproxy, tags: [lb, haproxy]}
+
+- name : setup app servers
+  hosts: apps
+  become: yes
+  roles: 
+    - {name: base, tags: base }
+    - {name: app, tags: [app, tomcat]}
+
+- name: setup database servers
+  hosts: appdbs
+  become: yes 
+  roles: 
+    - {name: base, tags: base }
+    - {name: postgresql, tags: [db, postgresql]}
