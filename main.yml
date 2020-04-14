@@ -18,4 +18,12 @@
   become: yes 
   roles: 
     - {name: base, tags: base }
-    - {name: postgresql, tags: [db, postgresql]}
+#    - {name: postgresql, tags: [db, postgresql]}
+    - name: ansible-role-postgresql
+      tags: db, postgresql
+      vars:
+        postgresql_databases:
+          - name: example_db
+        postgresql_users:
+          - name: example_user
+            password: supersecure
