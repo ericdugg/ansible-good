@@ -12,7 +12,6 @@
   roles: 
     - {name: base, tags: base }
     - {name: app, tags: [app, tomcat]}
-    - {name: apache, tags: [apache, httpd]}
 
 - name: setup database servers
   hosts: appdbs
