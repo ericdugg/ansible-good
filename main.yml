@@ -1,4 +1,10 @@
 ---
+
+- hosts: jumpbox
+  gather_facts: true
+  roles:
+    - name: osp-facts   
+
 - name: set up load-balancers  
   hosts: frontends
   become: yes
